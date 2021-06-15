@@ -1,0 +1,13 @@
+<!-- templates/overview.html -->
+{% extends 'base.html' %}
+
+{% block title %}Onsite Tool Assessment{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Welcome {{ user.username }} to your Onsite Tool Caseload!
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}

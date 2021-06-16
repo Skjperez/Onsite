@@ -1,6 +1,12 @@
 <!--templates/registration/signup.html-->
 
-<h2>Register Here</h2>
+<section class="hero is-success is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title has-text-centered">
+          Onsite Registration 
+        </h1>
+
 <form method='post'>
  {% csrf_token %}
  {{ form.as_p }}
@@ -8,3 +14,7 @@
 </form>
 
 <p class="text-center">If you already have an account <a href="{% url 'login' %}">Login Here</a></p>
+
+  </div>
+ </div>
+</section> 

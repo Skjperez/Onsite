@@ -6,6 +6,7 @@
 {% block content %}
 {% if user.is_authenticated %}
   Welcome {{ user.username }} to your Onsite Tool Caseload!
+  <p><a href='register/login/'>Log Out</a></p>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a>

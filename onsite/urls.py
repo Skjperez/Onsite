@@ -21,8 +21,8 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('onsite/', include('django.contrib.auth.urls')),
-    #path('register/', include('register.urls')),
-    path('register/', include('django.contrib.auth.urls')),
+    path('register/', include('register.urls')),
+    path('onsite/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='overview.html'), name='overview'),
     
 ]

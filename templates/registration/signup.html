@@ -1,0 +1,10 @@
+<!--templates/registration/signup.html-->
+
+<h2>Register Here</h2>
+<form method='post'>
+ {% csrf_token %}
+ {{ form.as_p }}
+ <button type="submit">Register</button>
+</form>
+
+<p class="text-center">If you already have an account <a href="{% url 'login' %}">Login Here</a></p>

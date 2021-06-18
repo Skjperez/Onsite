@@ -31,9 +31,9 @@ def UserLogin(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            username=form.cleaned_data('username')
-            password=form.cleaned_data('password')
+            #form.save()
+            username=form.cleaned_data.get('username')
+            password=form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             login(request,user)
             return redirect('/')

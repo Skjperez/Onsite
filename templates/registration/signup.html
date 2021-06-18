@@ -1,20 +1,23 @@
 <!--templates/registration/signup.html-->
+{% load static %}
 
-<section class="hero is-success is-fullheight">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title has-text-centered">
-          Onsite Registration 
-        </h1>
+<link href="{% static 'register/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'register/css/signin.css' %}" rel="stylesheet">
+
+<body class="text-center">
+<h1 class="h3 mb-3 font-weight-normal">Onsite Registration</h1>
 
 <form method='post'>
  {% csrf_token %}
+ <label for="inputUsername" class="sr-only">Username</label>
+      <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
  {{ form.as_p }}
- <button type="submit">Register</button>
+ <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 </form>
 
 <p class="text-center">If you already have an account <a href="{% url 'login' %}">Login Here</a></p>
 
-  </div>
- </div>
-</section> 
+</body>

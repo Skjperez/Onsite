@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import ClientAssessment
 from .forms import OnsiteForm
+from django.shortcuts import Http404
 
 # Create your views here.
 
@@ -15,7 +16,7 @@ def ReadView(request):
     context = {
         'onsitelist' : onsitelist 
     }
-    return render(request, 'templates/overview.html', context)
+    return render(request, 'onsitetool/read.html', context)
 
 def CreateView(request):
     #Check to see if user is logged in 
@@ -38,20 +39,33 @@ def CreateView(request):
                 change_in_status=form.cleaned_data['change_in_status'],
                 status_overview=form.cleaned_data['status_overview'],
                 services_implemented=form.cleaned_data['services_implemented'],
-                services_overivew=form.cleaned_data['services_overivew'],
+                services_overview=form.cleaned_data['services_overview'],
                 change_in_plan=form.cleaned_data['change_in_plan'],
                 plan_overview=form.cleaned_data['plan_overview'],
             )
             #save the data
             itemlist.save()
             #redirect back to homepage
-            return redirect('/')
+            return redirect('/onsitetool/read/')
     else:
         
         #else get an empty form
         form = OnsiteForm()
     context = {'form': form}
     return render(request, 'onsitetool/create.html', context)
+
+def ReviewView(request, client_id):
+    try:
+        #get the specific client's onsite tool by id
+        individual = ClientAssessment.objects.get(id=client_id)
+    #get error if the client does not exist
+    except ClientAssessment.DoesNotExist:
+        raise Http404('Client Onsite Tool Does Not Exist')
+    context = {
+        'individual' : individual 
+    }
+    return render(request, 'onsitetool/review.html', context)
+
 
 
             

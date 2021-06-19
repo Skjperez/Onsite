@@ -34,9 +34,10 @@ def UserLogin(request):
             #form.save()
             username=form.cleaned_data.get('username')
             password=form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             login(request,user)
-            return redirect('/')
+            #doesn't do next line. Reads from settings.
+            return redirect('/onsitetool/read/')
     else:
         form = NewUserForm()
     context = {'form' : form}
@@ -58,7 +59,7 @@ def UserLogin(request):
 
 def UserLogout(request):
     logout(request)
-    #Redirect to login page
+    #doesn't do next line because "logout". Reads from settings.
     return redirect('/register/login/')
 
 

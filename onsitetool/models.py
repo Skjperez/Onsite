@@ -11,9 +11,9 @@ class ClientAssessment(models.Model):
     change_in_status = models.BooleanField()
     status_overview = models.TextField()
     services_implemented = models.BooleanField()
-    services_overivew = models.TextField()
+    services_overview = models.TextField()
     change_in_plan = models.BooleanField()
     plan_overview= models.TextField()
 
     def __str__(self):
-        return self.name #name to be shown when called
+        return self.client_name #name to be shown when called

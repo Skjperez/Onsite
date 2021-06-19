@@ -1,4 +1,3 @@
-<!-- templates/overview.html -->
 {% extends 'base.html' %}
 
 {% block title %}Onsite Tool Assessment{% endblock %}
@@ -12,13 +11,13 @@
    
     <ul>
         {% for client in onsitelist %}
-       <li>{{ client.client_name }}</li>
+       <li><a href="/onsitetool/{{ client.id }}">{{ client.client_name }}</a></li>
        {% endfor %}
     </ul> 
   
   
   
-    <p><a href='register/login/'>Log Out</a></p>
+    <p><a href="{% url 'login' %}">Log Out</a></p>
 {% else %}
   
     <p>You are not logged in</p>

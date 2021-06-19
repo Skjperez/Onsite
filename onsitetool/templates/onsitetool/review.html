@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Client's Name: {{ individual.client_name }}</p>
+<p>Location of Assessment: {{ individual.assessment_location }}</p>
+<p>Date of Assessment: {{ individual.assessment_date }}</p>
+<p>Change in Status: {{ individual.change_in_status }}</p>
+<p>Status Overview: {{ individual.status_overview }}</p>
+<p>Services Implemented Appropriately: {{ individual.services_implemented }}</p>
+<p>Services Description Overview: {{ individual.services_overview }}</p>
+<p>Change in Plan: {{ individual.change_in_plan }}</p>
+<p>ISP Plan Description Overview: {{ individual.plan_overview }}</p>
+
+<a href="/onsitetool/read/">Return</a>
+
+{% endblock %}

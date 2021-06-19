@@ -7,6 +7,6 @@ class OnsiteForm(forms.Form):
     change_in_status = forms.BooleanField()
     status_overview = forms.CharField(widget=forms.Textarea)
     services_implemented = forms.BooleanField()
-    services_overivew = forms.CharField(widget=forms.Textarea)
+    services_overview = forms.CharField(widget=forms.Textarea)
     change_in_plan = forms.BooleanField()
     plan_overview= forms.CharField(widget=forms.Textarea)

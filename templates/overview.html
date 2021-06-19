@@ -5,10 +5,22 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Welcome {{ user.username }} to your Onsite Tool Caseload!
-  <p><a href='register/login/'>Log Out</a></p>
+  Welcome {{ user.username }} to your Onsite Tool Homepage!
+
+  <body>
+   <ul>{% for client in onsitelist %}
+       <li>{{ client.client_name }}</li>
+
+   {% endfor %}</ul> 
+  
+  
+  
+    <p><a href='register/login/'>Log Out</a></p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
+  
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+
+</body>
 {% endif %}
 {% endblock %}

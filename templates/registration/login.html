@@ -1,11 +1,23 @@
 <!-- templates/registration/login.html-->
+{% load static %}
 
-<h2>Log In</h2>
-<form method="post">
+<!-- Bootstrap core CSS -->
+<link href="{% static 'register/css/loginbootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'register/css/cover.css' %}" rel="stylesheet">
+
+<body class="text-center">
+<main role="main" class="inner cover">
+    <h2 class="cover-heading">Log In</h2>
+    <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Log In</button>
-</form>
+    </form>
 
-<p>If you do not have an account, please register</p>
-<a href="{% url 'signup' %}">Register</a>
+<p>If you do not have an account</p>
+<a href="{% url 'signup' %}">Click Here to Register</a>
+
+</main>
+</body>

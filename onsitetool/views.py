@@ -66,6 +66,59 @@ def ReviewView(request, client_id):
     }
     return render(request, 'onsitetool/review.html', context)
 
+def DeleteView(request, client_id):
+    #get specific client's onsite tool by id
+    individual = ClientAssessment.objects.get(id=client_id)
+    #delete client onsite tool entry
+    individual.delete()
+    #redirect back to the main page
+    return redirect('/onsitetool/read/')
+
+def UpdateView(request, client_id):
+    #get specific client onsite tool by id
+    individual = ClientAssessment.objects.get(id=client_id)
+    #generate form with data pre-populated
+    form = OnsiteForm(
+        initial = {
+           'client_name' : individual.client_name,
+            'assessment_location' : individual.assessment_location,
+            'assessment_date' : individual.assessment_date,
+            'change_in_status' : individual.change_in_status,
+            'status_overview' : individual.status_overview,
+            'services_implemented' : individual.services_implemented,
+            'services_overview' : individual.services_overview,
+            'change_in_plan' : individual.change_in_plan,
+            'plan_overview' : individual.plan_overview,
+
+        }
+    )
+    context = {
+        'individual' : individual,
+        'form' : form,
+
+    }
+    #save form with updated data 
+    if request.method == 'POST':
+        form = OnsiteForm(request.POST)
+        if form.is_valid():
+            individual.client_name = form.cleaned_data["client_name"]
+            individual.assessment_location = form.cleaned_data["assessment_location"]
+            individual.assessment_date = form.cleaned_data["assessment_date"]
+            individual.change_in_status = form.cleaned_data["change_in_status"]
+            individual.status_overview = form.cleaned_data["status_overview"]
+            individual.services_implemented = form.cleaned_data["services_implemented"]
+            individual.services_overview = form.cleaned_data["services_overview"]
+            individual.change_in_plan = form.cleaned_data["change_in_plan"]
+            individual.plan_overview = form.cleaned_data["plan_overview"]
+            individual.save()
+            #redirect back to the review page
+            return redirect(f'/onsitetool/{client_id}')
+    return render(request, 'onsitetool/update.html', context)
+            
+            
+
+
+
 
 
             

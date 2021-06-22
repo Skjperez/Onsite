@@ -4,7 +4,9 @@ class OnsiteForm(forms.Form):
     client_name = forms.CharField(label='Client Name',max_length=50)
     assessment_location = forms.CharField(label='Assessment Location',max_length=50)
     assessment_date = forms.DateField()
-    change_in_status = forms.BooleanField()
+    change_in_status = forms.TypedChoiceField(coerce=lambda x: x =='True', 
+                                   choices=((False, 'No'), (True, 'Yes')))
+
     status_overview = forms.CharField(widget=forms.Textarea)
     services_implemented = forms.BooleanField()
     services_overview = forms.CharField(widget=forms.Textarea)

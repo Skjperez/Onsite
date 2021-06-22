@@ -2,15 +2,15 @@
 
 {% block content %}
 
-<p>Client's Name: {{ individual.client_name }}</p>
-<p>Location of Assessment: {{ individual.assessment_location }}</p>
-<p>Date of Assessment: {{ individual.assessment_date }}</p>
-<p>Change in Status: {{ individual.change_in_status }}</p>
-<p>Status Overview: {{ individual.status_overview }}</p>
-<p>Services Implemented Appropriately: {{ individual.services_implemented }}</p>
-<p>Services Description Overview: {{ individual.services_overview }}</p>
-<p>Change in Plan: {{ individual.change_in_plan }}</p>
-<p>ISP Plan Description Overview: {{ individual.plan_overview }}</p>
+<p><strong>Client's First and Last Name: </strong>{{ individual.client_name }}</p>
+<p><strong>Location of Assessment: </strong>{{ individual.assessment_location }}</p>
+<p><strong>Date of Assessment: </strong>{{ individual.assessment_date }}</p>
+<p><strong>Change in Status: </strong>{{ individual.change_in_status }}</p>
+<p><strong>Status Overview: </strong>{{ individual.status_overview }}</p>
+<p><strong>Services Implemented Appropriately: </strong>{{ individual.services_implemented }}</p>
+<p><strong>Services Description Overview: </strong>{{ individual.services_overview }}</p>
+<p><strong>Change in Plan: </strong>{{ individual.change_in_plan }}</p>
+<p><strong>ISP Plan Description Overview: </strong>{{ individual.plan_overview }}</p>
 
 <a href="/onsitetool/read/">Return</a>
 <a href="/onsitetool/{{ individual.id }}/delete">Delete</a>

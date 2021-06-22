@@ -97,7 +97,7 @@ def UpdateView(request, client_id):
         'form' : form,
 
     }
-    #save form with updated data 
+    #save form with updated data and post to the database 
     if request.method == 'POST':
         form = OnsiteForm(request.POST)
         if form.is_valid():

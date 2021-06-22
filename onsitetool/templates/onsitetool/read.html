@@ -11,7 +11,7 @@
    
     <ul>
         {% for client in onsitelist %}
-       <li><a href="/onsitetool/{{ client.id }}">{{ client.client_name }}</a></li>
+       <li><a href="/onsitetool/{{ client.id }}">{{ client.client_name }}  {{ client.assessment_date}}</a></li>
        {% endfor %}
     </ul> 
   

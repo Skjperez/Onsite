@@ -1,39 +1,21 @@
 <!--templates/registration/signup.html-->
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="{% static 'register/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="{% static 'register/css/loginbootstrap.min.css' %}" rel="stylesheet">
 
+<!-- Custom styles for this template -->
+<link href="{% static 'register/css/cover.css' %}" rel="stylesheet">
 
-
-<link href="{% static 'register/css/signin.css' %}" rel="stylesheet">
-</head>
 <body class="text-center">
-    <main class="form-signin">
+    <main role="main" class="inner cover">
         <div class="block center-text">
-        <h2 class="h3 mb-3 font-weight-normal">Onsite Registration</h2>
+            <h2 class="cover-heading">Onsite Registeration</h2>
         </div>
     <form method="post">
  {% csrf_token %}
  
-    <div class="form-floating">
-        <label for="floatingInput" class="sr-only">Username</label>
-        <input name= "username" type="username" id="floatingInput" class="form-control" placeholder="Username" required autofocus>
-    </div>
-    
-    <div class="form-floating">
-        <label for="floatingPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="floatingPassword" class="form-control" placeholder="Password" required autofocus>
-    </div>
-    
-    <div class="form-floating">
-        <label for="floatingPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="floatingPassword" class="form-control" placeholder="Confirm Password" required autofocus>
-    </div>
-    
+{{ form.as_p }}
     
  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 </form>

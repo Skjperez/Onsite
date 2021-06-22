@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Client Onsite Tool - {{ user.username }}{% endblock %}
 
 {% block content %}
 <h2>Add a Client's Onsite Tool Assessment</h2>
     <form action="/onsitetool/create/" method="post">
         {% csrf_token %} 
-        {{ form.as_p }}
+        {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

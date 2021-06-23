@@ -1,6 +1,8 @@
 <!-- templates/registration/login.html-->
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 <!-- Bootstrap core CSS -->
 <link href="{% static 'register/css/loginbootstrap.min.css' %}" rel="stylesheet">
 
@@ -8,16 +10,26 @@
 <link href="{% static 'register/css/cover.css' %}" rel="stylesheet">
 
 <body class="text-center">
-<main role="main" class="inner cover">
-    <h2 class="cover-heading">Log In</h2>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <main role="main" class="inner cover">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="cover-heading">Onsite Tool Log In</h2>
     <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
+    {{ form|crispy }}
+    <br>
+    <button class="btn btn-lg btn-secondary">Log In</button>
+    
     </form>
 
 <p>If you do not have an account</p>
 <a href="{% url 'signup' %}">Click Here to Register</a>
 
-</main>
+    </div>
+
+    </main>
 </body>

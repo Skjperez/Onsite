@@ -3,26 +3,45 @@
 {% block title %}Onsite Tool Assessment{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Welcome {{ user.username }} to your Onsite Tool Homepage!
 
-  <body>
-    <a href="/onsitetool/create/">Add a Client's Onsite Tool Assessment</a>
+ 
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <nav class="nav nav-masthead justify-content-center">
+            {% if user.is_authenticated %}
+            WELCOME {{ user.username }}
+            <a class="nav-link active" href="/onsitetool/create/">Add Onsite Tool </a>
+            <a class="nav-link" href="{% url 'login' %}">Log Out</a>
+          </nav>
+        </div>
+      </header>
+    
+
+
    
     <ul>
         {% for client in onsitelist %}
        <li><a href="/onsitetool/{{ client.id }}">{{ client.client_name }}  {{ client.assessment_date}}</a></li>
+       
        {% endfor %}
     </ul> 
   
   
   
-    <p><a href="{% url 'login' %}">Log Out</a></p>
-{% else %}
+   
+
+
+    {% else %}
   
     <p>You are not logged in</p>
     <a href="{% url 'login' %}">Log In</a>
 
+
+  </div>
 </body>
 {% endif %}
 {% endblock %}

@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<br>
 <p><strong>Client's First and Last Name: </strong>{{ individual.client_name }}</p>
 <p><strong>Location of Assessment: </strong>{{ individual.assessment_location }}</p>
 <p><strong>Date of Assessment: </strong>{{ individual.assessment_date }}</p>
@@ -12,8 +13,8 @@
 <p><strong>Change in Plan: </strong>{{ individual.change_in_plan }}</p>
 <p><strong>ISP Plan Description Overview: </strong>{{ individual.plan_overview }}</p>
 
-<a href="/onsitetool/read/">Return</a>
-<a href="/onsitetool/{{ individual.id }}/delete">Delete</a>
-<a href="/onsitetool/{{ individual.id }}/update">Update</a>
+<a class="btn btn-lg btn-secondary" href="/onsitetool/read/">Return</a>
+<a class="btn btn-lg btn-secondary" href="/onsitetool/{{ individual.id }}/delete">Delete</a>
+<a class="btn btn-lg btn-secondary" href="/onsitetool/{{ individual.id }}/update">Update</a>
 
 {% endblock %}

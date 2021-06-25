@@ -1,14 +1,17 @@
-<!-- templates/base.html -->
 {% load static %}
+
+<!-- templates/base.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
+   <title>{% block title %}{% endblock %}</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{% static 'register/css/bootstrap2.min.css' %}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="{% static 'register/css/bootstrap.min.css' %}" rel="stylesheet" crossorigin="anonymous">
 
   <style>
     .bd-placeholder-img {
@@ -29,10 +32,31 @@
   <!-- Custom styles for this template -->
 <link href="{% static 'register/css/navbar-top.css' %}" rel="stylesheet">
 
-  <title>{% block title %}Onsite Tool Assessment{% endblock %}</title>
+ 
 </head>
 <body>
   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">     
+    <div class="container-fluid">     
+        <a class="navbar-brand" href="/onsitetool/create/">Add Onsite Tool </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+             <ul class="navbar-nav">
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active">WELCOME {{ user.username }}</a>
+                </li>
+                <li>
+              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Log Out</a>
+            </li>
+              {% endif %}
+            </li>
+            </ul>
+        </div>
+      </div>
+  </nav>
 
   <main class="container">
     <div class="bg-light p-5 rounded">
@@ -40,6 +64,9 @@
     {% endblock %}
   </div>
   </main>
-  
+
+  <script src="{% static 'register/css/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

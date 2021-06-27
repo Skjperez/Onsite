@@ -25,6 +25,6 @@ urlpatterns = [
     path('register/', include('django.contrib.auth.urls')),
     path('register/', include('register.urls')),
     path('onsitetool/', include('onsitetool.urls')),
-    #path('', TemplateView.as_view(template_name='overview.html'), name='overview'),
+    path('', TemplateView.as_view(template_name='overview.html'), name='overview'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
